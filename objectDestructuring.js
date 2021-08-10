@@ -28,3 +28,13 @@ const myobj2 = {
 };
 ({var1,var2} = myobj2); 
 /*if object property name and destructure variable name is same then use the first brace*/
+
+//Reassign destructure variable on the object
+const student = {
+    q: 'ibrahim hossain',
+    w : 23,
+    e : 5+'ft',
+    r : '1ft'
+}
+//Now destructuring the properties with new destructuring name for super descriptive 
+const {q:sname,w:sage,e:sheight,r} = student;//Assign new variable for super descriptive here, sname is new name along with sage is new identifier sheight also a new identifier but  here w and r is default destrcturing extract value
