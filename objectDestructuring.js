@@ -66,4 +66,8 @@ function stateUser({user = "bob", memberType}) {
 //Pass an object to the function as argument in js.
 stateUser({user: 'ibrahim hossain', memberType : 'premium'});
 
-
+function destrucureArgument(obj) {
+    const {sname,sage,sheight} = obj;
+    console.log(`student name is ${sname} studnet age is ${sage} student height is ${sheight}`);
+}
+destrucureArgument({sname: 'ibrahim hossain jewel', sage: 23, sheight: "5ft"});
