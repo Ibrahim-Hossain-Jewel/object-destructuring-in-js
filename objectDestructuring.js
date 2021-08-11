@@ -67,7 +67,82 @@ function stateUser({user = "bob", memberType}) {
 stateUser({user: 'ibrahim hossain', memberType : 'premium'});
 
 function destrucureArgument(obj) {
-    const {sname,sage,sheight} = obj;
-    console.log(`student name is ${sname} studnet age is ${sage} student height is ${sheight}`);
+    const {sname = null,sage,sheight} = obj;
+    if(!sname){
+        console.log('error no username entered >:(');
+        return;
+    }
+    else{
+        console.log(`student name is ${sname} studnet age is ${sage} student height is ${sheight}`);
+    }
+    
 }
-destrucureArgument({sname: 'ibrahim hossain jewel', sage: 23, sheight: "5ft"});
+const member1 = {sname: 'ibrahim hossain jewel', sage: 23, sheight: "5ft"};
+const member2 = {sage: 12, sheight: 8};
+
+
+//filter an object data using function
+function sayIfValid({prop,a111}) {//object filtered by argument object
+    //construct another object by the object argument properties.
+    const internalObj = {
+        prop,
+        a111,
+        constructed: true
+    }
+    return internalObj;
+}
+const myobj6 = {
+    prop : 'I am valid',
+    proop : 'I am not valid',
+    a111 : 'I am also not valid'
+}
+
+const myConstructedObj = sayIfValid(myobj6);//here the sayIfValid() method return an object that's are destructured below.
+const {constructed,prop,a111} = myConstructedObj;
+console.log(constructed,prop,a111);
+
+//destructuring object array object 
+const myobj7 = {
+    title: 'my address book',
+    entries : [
+        {
+            name: 'bob',
+            number: '222-22222',
+            address: '123 Fake St',
+            //now make nested rarray object
+            others : {
+                wifeName : 'jorina',
+                wifeWeight: 60+'kg'
+            }
+        },
+        {
+            name: 'jewel',
+            number: '111-22222',
+            address: '111 fake St',
+            others : {
+                wifeName : 'jorina',
+                wifeWeight: 60+'kg'
+            }
+        },
+        {
+            name: 'ibrahim hossain',
+            number: '111-33344',
+            address: '123-fake st',
+            others : {
+                wifeName : 'jorina',
+                wifeWeight: 60+'kg'
+            }
+        }
+    ], //Entry is totally iterator
+    myPhone: '555-1111'
+};
+//Destructuring myobj7.
+const {title,entries:[{},{},{name:mo}],entries} = myobj7; 
+//if you destructured once then use can't be used while you dose't declare one more time.
+console.log(mo);
+//destructuring through loop with the array properties.
+//you can destructuring inside forof location
+for (const {name:nn,number:pn,address:addr, others:{wifeName,wifeWeight}} of entries) {
+    console.log(`name is ${nn} phone number is ${pn} and address is ${addr} wife name is ${wifeName} and wife weight is ${wifeWeight}`);
+    //the wifeweight is bounded inside for loop.
+}
